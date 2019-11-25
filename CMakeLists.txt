@@ -4,7 +4,7 @@ project(matrix VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
 
 set(BINARY_NAME matrix)
 
-add_executable(${BINARY_NAME} main.cpp matrix.h)
+add_executable(${BINARY_NAME} src/main.cpp src/matrix.h)
 
 set_target_properties(${BINARY_NAME} PROPERTIES
     CXX_STANDARD 14
