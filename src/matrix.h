@@ -99,7 +99,6 @@ public:
 		const T operator[](size_t m) const {
 			index temp = _index;
 			temp[dim - 1] = m;
-			T temp;
 			if (_matrix_pointer->find(temp) == _matrix_pointer->end()) {
 				temp = def;
 			}
