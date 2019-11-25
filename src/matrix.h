@@ -17,7 +17,7 @@
  * @brief Шаблонный класс бесконечной матрицы
  * T шаблонный параметр типа аргумента
  * def шаблонный параметр значения ячейки по умолчанию
- * dim шаблонный параметр размерности матрицы, по умолчанию 2. 
+ * dim шаблонный параметр размерности матрицы, по умолчанию 2.
  *
  */
 template <typename T, T def, size_t dim = 2>
@@ -36,13 +36,13 @@ public:
 	}
 
 	/**
- * @brief Шаблонный вспомогательный класс, для реализации оператора [] 
+ * @brief Шаблонный вспомогательный класс, для реализации оператора []
  * T шаблонный параметр типа аргумента
  * def шаблонный параметр значения ячейки по умолчанию
  * ind шаблонный параметр индекса
  *
  */
-	//template <typename T, T def, size_t ind>
+ //template <typename T, T def, size_t ind>
 	template <size_t ind>
 	class Proxy {
 		friend class Matrix;
@@ -55,11 +55,11 @@ public:
 		}
 
 		Proxy(const Proxy& p) = default;
-		
+
 		void operator=(const Proxy& other) = delete;
 	public:
 		~Proxy() = default;
-	
+
 		Proxy<ind + 1> operator[](size_t m) {
 			_index[ind - 1] = m;
 			return (Proxy<ind + 1>(_matrix_pointer, _index));
@@ -83,11 +83,10 @@ public:
 			_matrix_pointer = matrix;
 			_index = other;
 		}
-
-		Proxy(const Proxy& p) = default;
-	
-		void operator=(const Proxy& other) = delete;
 	public:
+		Proxy(const Proxy& p) = default;
+
+		void operator=(const Proxy& other) = delete;
 		~Proxy() = default;
 
 		Proxy& operator=(const T& n) {
@@ -96,31 +95,35 @@ public:
 			}
 			return *this;
 		}
-
-		const T& operator[](size_t m) const {
-			if (_matrix_pointer->find(_index) == _matrix_pointer->end()) {
-				return def;
+		
+		const T operator[](size_t m) const {
+			index temp = _index;
+			temp[dim - 1] = m;
+			T temp;
+			if (_matrix_pointer->find(temp) == _matrix_pointer->end()) {
+				temp = def;
 			}
 			else {
-				return _matrix_pointer->at[_index];
+				temp = _matrix_pointer->at(temp);
 			}
+			return temp;
+		}
+
+		operator const T() const {
+			T temp;
+			if (_matrix_pointer->find(_index) == _matrix_pointer->end()) {
+				temp = def;
+			}
+			else {
+				temp = _matrix_pointer->at(_index);
+			}
+			return temp;
 		}
 
 		Proxy<dim>& operator[](size_t m) {
 			_index[dim - 1] = m;
 			return *this;
 		}
-
-
-		operator const T() const {
-			if (_matrix_pointer->find(_index) == _matrix_pointer->end()) {
-				return def;
-			}
-			else {
-				return _matrix_pointer->at(_index);
-			}
-		}
-
 
 		friend std::ostream& operator<<(std::ostream& out, const Proxy<dim>& proxy) {
 			T temp;
@@ -134,8 +137,6 @@ public:
 			out << temp;
 			return out;
 		}
-
-
 	};
 
 
