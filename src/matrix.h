@@ -74,7 +74,7 @@ public:
 *
 */
 	template<>
-	class Proxy<T, def, dim> {
+	class Proxy<dim> {
 		friend class Matrix;
 		matrix* _matrix_pointer;
 		index _index;
