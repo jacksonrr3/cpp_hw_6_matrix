@@ -60,9 +60,9 @@ public:
 	public:
 		~Proxy() = default;
 	
-		Proxy<T, def, ind + 1> operator[](size_t m) {
+		Proxy<ind + 1> operator[](size_t m) {
 			_index[ind - 1] = m;
-			return (Proxy<T, def, ind + 1>(_matrix_pointer, _index));
+			return (Proxy<ind + 1>(_matrix_pointer, _index));
 		}
 	};
 
@@ -106,7 +106,7 @@ public:
 			}
 		}
 
-		Proxy<T, def, dim>& operator[](size_t m) {
+		Proxy<dim>& operator[](size_t m) {
 			_index[dim - 1] = m;
 			return *this;
 		}
@@ -122,7 +122,7 @@ public:
 		}
 
 
-		friend std::ostream& operator<<(std::ostream& out, const Proxy<T, def, dim>& proxy) {
+		friend std::ostream& operator<<(std::ostream& out, const Proxy<dim>& proxy) {
 			T temp;
 			auto it = proxy._matrix_pointer->find(proxy._index);
 			if (it == proxy._matrix_pointer->end()) {
@@ -139,10 +139,10 @@ public:
 	};
 
 
-	Proxy<T, def, 2> operator[](size_t n) {
+	Proxy<2> operator[](size_t n) {
 		index temp_ind;
 		temp_ind[0] = n;
-		Proxy<T, def, 2> temp(&_map, temp_ind);
+		Proxy<2> temp(&_map, temp_ind);
 		return temp;
 	}
 
