@@ -9,6 +9,6 @@ endif()
 project(matrix VERSION 1.0.${VERSION_BUILD})
 
 add_subdirectory(src)
-add_subdirectory(tests)
+//add_subdirectory(tests)
 
-enable_testing()
+//enable_testing()
