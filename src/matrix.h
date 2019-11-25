@@ -42,7 +42,8 @@ public:
  * ind шаблонный параметр индекса
  *
  */
-	template <typename T, T def, size_t ind>
+	//template <typename T, T def, size_t ind>
+	template <size_t ind>
 	class Proxy {
 		friend class Matrix;
 		matrix* _matrix_pointer;
@@ -56,9 +57,9 @@ public:
 		Proxy(const Proxy& p) = default;
 		
 		void operator=(const Proxy& other) = delete;
-
-		~Proxy() = default;
 	public:
+		~Proxy() = default;
+	
 		Proxy<T, def, ind + 1> operator[](size_t m) {
 			_index[ind - 1] = m;
 			return (Proxy<T, def, ind + 1>(_matrix_pointer, _index));
@@ -86,10 +87,9 @@ public:
 		Proxy(const Proxy& p) = default;
 	
 		void operator=(const Proxy& other) = delete;
-
+	public:
 		~Proxy() = default;
 
-	public:
 		Proxy& operator=(const T& n) {
 			if (n != def) {
 				_matrix_pointer->emplace(_index, n);
