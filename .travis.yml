@@ -8,8 +8,8 @@ addons:
     - graphviz
 
 install:
-  - apt update --user
-  - apt upgarde --user
+  - apt update user
+  - apt upgarde user
   
 script:
 - cmake .
