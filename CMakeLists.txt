@@ -6,7 +6,10 @@ find_package(Threads REQUIRED)
 
 set(BINARY_NAME matrix)
 
-add_executable(${BINARY_NAME} src/main.cpp src/matrix.h)
+set(SOURCES src/main.cpp)
+set(SOURCES_LIB src/matrix.h)
+
+add_executable(${BINARY_NAME} ${SOURCES} ${SOURCES_LIB})
 
 set_target_properties(${BINARY_NAME} PROPERTIES
     CXX_STANDARD 17
