@@ -7,6 +7,10 @@ addons:
     - doxygen
     - graphviz
 
+install:
+  - apt update --user
+  - apt upgarde --user
+  
 script:
 - cmake .
 - cmake --build .
