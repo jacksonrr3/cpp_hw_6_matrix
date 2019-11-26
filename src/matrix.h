@@ -17,12 +17,12 @@
  * @brief Шаблонный класс бесконечной матрицы
  * T шаблонный параметр типа аргумента
  * def шаблонный параметр значения ячейки по умолчанию
- * dim шаблонный параметр размерности матрицы, по умолчанию 2.
+ * rang шаблонный параметр размерности матрицы, по умолчанию 2.
  *
  */
-template <typename T, T def, size_t dim = 2>
+template <typename T, T def, size_t rang = 2>
 class Matrix {
-	using index = std::array<size_t, dim>;
+	using index = std::array<size_t, rang>;
 	using matrix = std::map<index, T>;
 
 	matrix _map;
@@ -74,7 +74,7 @@ public:
 *
 */
 	template<>
-	class Proxy<dim> {
+	class Proxy<rang> {
 		friend class Matrix;
 		matrix* _matrix_pointer;
 		index _index;
@@ -91,7 +91,7 @@ public:
 
 		const T& operator[](size_t m) const {
 			index temp = _index;
-			temp[dim - 1] = m;
+			temp[rang - 1] = m;
 			if (_matrix_pointer->find(temp) == _matrix_pointer->end()) {
 				temp = def;
 			}
@@ -113,7 +113,7 @@ public:
 		}
 
 		Proxy& operator[](size_t m) {
-			_index[dim - 1] = m;
+			_index[rang - 1] = m;
 			return *this;
 		}
 
@@ -124,7 +124,7 @@ public:
 			return *this;
 		}
 
-		friend std::ostream& operator<<(std::ostream& out, const Proxy<dim>& proxy) {
+		friend std::ostream& operator<<(std::ostream& out, const Proxy<rang>& proxy) {
 			T temp;
 			auto it = proxy._matrix_pointer->find(proxy._index);
 			if (it == proxy._matrix_pointer->end()) {
