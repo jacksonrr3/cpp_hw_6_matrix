@@ -112,7 +112,7 @@ public:
 			return temp;
 		}
 
-		Proxy<dim>& operator[](size_t m) {
+		Proxy& operator[](size_t m) {
 			_index[dim - 1] = m;
 			return *this;
 		}
