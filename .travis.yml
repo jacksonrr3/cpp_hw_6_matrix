@@ -8,7 +8,6 @@ addons:
     - graphviz
 
 install:
-  - apt update user
   - apt upgarde user
   
 script:
