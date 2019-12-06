@@ -112,7 +112,7 @@ public:
 			return temp;
 		}
 
-		Proxy& operator[](size_t m) {
+		Proxy<rang> operator[](size_t m) {
 			_index[rang - 1] = m;
 			return *this;
 		}
