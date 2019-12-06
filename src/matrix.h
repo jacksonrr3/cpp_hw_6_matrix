@@ -139,10 +139,10 @@ public:
 	};
 
 
-	Proxy<T, def, 2> operator[](size_t n) {
+	Proxy<2> operator[](size_t n) {
 		index temp_ind;
 		temp_ind[0] = n;
-		Proxy<T, def, 2> temp(&_map, temp_ind);
+		Proxy<2> temp(&_map, temp_ind);
 		return temp;
 	}
 
