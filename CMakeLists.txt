@@ -1,0 +1,32 @@
+cmake_minimum_required(VERSION 3.2)
+
+project(matrix VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
+
+find_package(Threads REQUIRED)
+
+set(BINARY_NAME matrix)
+
+set(SOURCES src/main.cpp)
+set(SOURCES_LIB src/matrix.h)
+
+add_executable(${BINARY_NAME} ${SOURCES} ${SOURCES_LIB})
+
+set_target_properties(${BINARY_NAME} PROPERTIES
+    CXX_STANDARD 17
+    CXX_STANDARD_REQUIRED ON
+    COMPILE_OPTIONS "-Wpedantic;-Wall;-Wextra"
+)
+
+install(TARGETS ${BINARY_NAME} RUNTIME DESTINATION bin)
+
+set(CPACK_GENERATOR DEB)
+
+set(CPACK_PACKAGE_VERSION_MAJOR "${PROJECT_VERSION_MAJOR}")
+set(CPACK_PACKAGE_VERSION_MINOR "${PROJECT_VERSION_MINOR}")
+set(CPACK_PACKAGE_VERSION_PATCH "${PROJECT_VERSION_PATCH}")
+
+set(CPACK_PACKAGE_CONTACT jacksonrr3@yandex.ru)
+
+set(CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)
+
+include(CPack)

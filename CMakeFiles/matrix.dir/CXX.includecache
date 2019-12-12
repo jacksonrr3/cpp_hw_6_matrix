@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/travis/build/jacksonrr3/cpp_hw_6_matrix/src/main.cpp
+iostream
+-
+matrix.h
+/home/travis/build/jacksonrr3/cpp_hw_6_matrix/src/matrix.h
+
+/home/travis/build/jacksonrr3/cpp_hw_6_matrix/src/matrix.h
+iostream
+-
+map
+-
+unordered_map
+-
+array
+-
+
