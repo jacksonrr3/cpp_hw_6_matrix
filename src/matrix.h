@@ -34,20 +34,20 @@ class Proxy {
 
 	matrix* _matrix_pointer;
 	index _index;
-
+	
+	void operator=(const Proxy& other) = delete;
+	Proxy& operator=(const T& value) = delete;
+public:
 	Proxy(matrix* matrix, index other) {
 		_matrix_pointer = matrix;
 		_index = other;
 	}
 
 	Proxy(const Proxy& p) = default;
-
-	void operator=(const Proxy& other) = delete;
-public:
 	~Proxy() = default;
 
 	Proxy<ind + 1, T, def, dim> operator[](size_t m) {
-		_index[ind - 1] = m;
+		_index[ind] = m;
 		return (Proxy<ind + 1, T, def, dim>(_matrix_pointer, _index));
 	}
 };
@@ -70,16 +70,15 @@ class Proxy<dim, T, def, dim> {
 
 	matrix* _matrix_pointer;
 	index _index;
-
+public:
 	Proxy(matrix* matrix, index other) {
 		_matrix_pointer = matrix;
 		_index = other;
 	}
-public:
 	//Proxy(const Proxy& p) = default;
 
 	void operator=(const Proxy& other) = delete;
-	//~Proxy() = default;
+	~Proxy() = default;
 
 	T& operator[](size_t m) const {
 		index temp = _index;
@@ -104,10 +103,7 @@ public:
 		return temp;
 	}
 
-	Proxy& operator[](size_t m) {
-		_index[dim - 1] = m;
-		return *this;
-	}
+	Proxy& operator[](size_t m) = delete;
 
 	Proxy& operator=(const T& value) {
 		if (value != def) {
@@ -158,11 +154,11 @@ public:
 	}
 
 
-	Proxy<2, T, def, dim> operator[](size_t n) {
+	Proxy<1, T, def, dim> operator[](size_t n) {
 		index temp_ind;
 		temp_ind[0] = n;
 		//Proxy<2> temp(&_map, temp_ind);
-		return Proxy<2, T, def, dim>(&_map, temp_ind);
+		return Proxy<1, T, def, dim>(&_map, temp_ind);
 	}
 
 
