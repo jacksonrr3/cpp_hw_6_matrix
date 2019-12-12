@@ -1,10 +1,10 @@
 Package: matrix
-Version: 0.0.31
+Version: 0.0.32
 Section: devel
 Priority: optional
 Architecture: amd64
 Depends: libc6 (>= 2.2.5), libgcc1 (>= 1:3.0), libstdc++6 (>= 4.1.1)
-Installed-Size: 58
+Installed-Size: 68
 Maintainer: jacksonrr3@yandex.ru
 Description: matrix built using CMake
 
