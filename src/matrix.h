@@ -27,7 +27,7 @@ class Matrix;
 template <size_t ind, typename T, T def, size_t dim=2>
 class Proxy {
 	
-	friend class<T, def, dim> Matrix;
+	friend class Matrix<T, def, dim>;
 
 	using index = std::array<size_t, dim>;
 	using matrix = std::map<index, T>;
