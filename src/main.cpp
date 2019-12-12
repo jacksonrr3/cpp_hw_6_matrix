@@ -12,13 +12,12 @@ int main() {
 		matrix_main[i][i] = i;
 		matrix_main[9 - i][i] = i;
 	}
-	//заполняем значением по умолчанию в шахматном порядке, начиная с [0][0]
-	for (int i = 0; i <= (N + N/2); i+=2) {
-		for (int j = 0; j < N / 2; j++) {
-			int n = (j + i) % N;
-			int m = j;
-			matrix_main[n][m] = def_num;
-			matrix_main[N - 1 - n][N - 1 - m] = def_num;
+	
+	//заполняем значением по умолчанию в шахматном порядке, начиная с [0][0], 25 итераций
+	for (int i = 0; i <= (N-1)/2; i++) {
+		for (int j = i%2; j < N; j+=2) {
+			matrix_main[i][j] = def_num;
+			matrix_main[N - 1 - i][N - 1 - j] = def_num;
 		}
 	}
 

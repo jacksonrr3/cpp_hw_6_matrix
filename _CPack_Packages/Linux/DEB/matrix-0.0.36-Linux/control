@@ -1,5 +1,5 @@
 Package: matrix
-Version: 0.0.35
+Version: 0.0.36
 Section: devel
 Priority: optional
 Architecture: amd64

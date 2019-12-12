@@ -1,22 +1,22 @@
 Determining if the pthread_create exist failed with the following output:
 Change Dir: /home/travis/build/jacksonrr3/cpp_hw_6_matrix/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_2ee65/fast"
-/usr/bin/make -f CMakeFiles/cmTC_2ee65.dir/build.make CMakeFiles/cmTC_2ee65.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_4575e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_4575e.dir/build.make CMakeFiles/cmTC_4575e.dir/build
 make[1]: Entering directory '/home/travis/build/jacksonrr3/cpp_hw_6_matrix/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_2ee65.dir/CheckSymbolExists.c.o
-/usr/local/clang-7.0.0/bin/clang    -o CMakeFiles/cmTC_2ee65.dir/CheckSymbolExists.c.o   -c /home/travis/build/jacksonrr3/cpp_hw_6_matrix/CMakeFiles/CMakeTmp/CheckSymbolExists.c
-Linking C executable cmTC_2ee65
-/usr/local/cmake-3.12.4/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2ee65.dir/link.txt --verbose=1
-/usr/local/clang-7.0.0/bin/clang      -rdynamic CMakeFiles/cmTC_2ee65.dir/CheckSymbolExists.c.o  -o cmTC_2ee65 
-CMakeFiles/cmTC_2ee65.dir/CheckSymbolExists.c.o: In function `main':
+Building C object CMakeFiles/cmTC_4575e.dir/CheckSymbolExists.c.o
+/usr/local/clang-7.0.0/bin/clang    -o CMakeFiles/cmTC_4575e.dir/CheckSymbolExists.c.o   -c /home/travis/build/jacksonrr3/cpp_hw_6_matrix/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_4575e
+/usr/local/cmake-3.12.4/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4575e.dir/link.txt --verbose=1
+/usr/local/clang-7.0.0/bin/clang      -rdynamic CMakeFiles/cmTC_4575e.dir/CheckSymbolExists.c.o  -o cmTC_4575e 
+CMakeFiles/cmTC_4575e.dir/CheckSymbolExists.c.o: In function `main':
 CheckSymbolExists.c:(.text+0x19): undefined reference to `pthread_create'
 clang-7: error: linker command failed with exit code 1 (use -v to see invocation)
-CMakeFiles/cmTC_2ee65.dir/build.make:86: recipe for target 'cmTC_2ee65' failed
-make[1]: *** [cmTC_2ee65] Error 1
+CMakeFiles/cmTC_4575e.dir/build.make:86: recipe for target 'cmTC_4575e' failed
+make[1]: *** [cmTC_4575e] Error 1
 make[1]: Leaving directory '/home/travis/build/jacksonrr3/cpp_hw_6_matrix/CMakeFiles/CMakeTmp'
-Makefile:121: recipe for target 'cmTC_2ee65/fast' failed
-make: *** [cmTC_2ee65/fast] Error 2
+Makefile:121: recipe for target 'cmTC_4575e/fast' failed
+make: *** [cmTC_4575e/fast] Error 2
 
 File /home/travis/build/jacksonrr3/cpp_hw_6_matrix/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
 /* */
@@ -36,20 +36,20 @@ int main(int argc, char** argv)
 Determining if the function pthread_create exists in the pthreads failed with the following output:
 Change Dir: /home/travis/build/jacksonrr3/cpp_hw_6_matrix/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_0a725/fast"
-/usr/bin/make -f CMakeFiles/cmTC_0a725.dir/build.make CMakeFiles/cmTC_0a725.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_f1092/fast"
+/usr/bin/make -f CMakeFiles/cmTC_f1092.dir/build.make CMakeFiles/cmTC_f1092.dir/build
 make[1]: Entering directory '/home/travis/build/jacksonrr3/cpp_hw_6_matrix/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_0a725.dir/CheckFunctionExists.c.o
-/usr/local/clang-7.0.0/bin/clang   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_0a725.dir/CheckFunctionExists.c.o   -c /usr/local/cmake-3.12.4/share/cmake-3.12/Modules/CheckFunctionExists.c
-Linking C executable cmTC_0a725
-/usr/local/cmake-3.12.4/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0a725.dir/link.txt --verbose=1
-/usr/local/clang-7.0.0/bin/clang  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_0a725.dir/CheckFunctionExists.c.o  -o cmTC_0a725 -lpthreads 
+Building C object CMakeFiles/cmTC_f1092.dir/CheckFunctionExists.c.o
+/usr/local/clang-7.0.0/bin/clang   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_f1092.dir/CheckFunctionExists.c.o   -c /usr/local/cmake-3.12.4/share/cmake-3.12/Modules/CheckFunctionExists.c
+Linking C executable cmTC_f1092
+/usr/local/cmake-3.12.4/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f1092.dir/link.txt --verbose=1
+/usr/local/clang-7.0.0/bin/clang  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_f1092.dir/CheckFunctionExists.c.o  -o cmTC_f1092 -lpthreads 
 /usr/bin/ld: cannot find -lpthreads
 clang-7: error: linker command failed with exit code 1 (use -v to see invocation)
-CMakeFiles/cmTC_0a725.dir/build.make:86: recipe for target 'cmTC_0a725' failed
-make[1]: *** [cmTC_0a725] Error 1
+CMakeFiles/cmTC_f1092.dir/build.make:86: recipe for target 'cmTC_f1092' failed
+make[1]: *** [cmTC_f1092] Error 1
 make[1]: Leaving directory '/home/travis/build/jacksonrr3/cpp_hw_6_matrix/CMakeFiles/CMakeTmp'
-Makefile:121: recipe for target 'cmTC_0a725/fast' failed
-make: *** [cmTC_0a725/fast] Error 2
+Makefile:121: recipe for target 'cmTC_f1092/fast' failed
+make: *** [cmTC_f1092/fast] Error 2
 
 
