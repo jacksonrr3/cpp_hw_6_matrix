@@ -37,13 +37,13 @@ class Proxy {
 	
 	void operator=(const Proxy& other) = delete;
 	Proxy& operator=(const T& value) = delete;
+	Proxy(const Proxy& p) = default;
 public:
 	Proxy(matrix* matrix, index other) {
 		_matrix_pointer = matrix;
 		_index = other;
 	}
-
-	Proxy(const Proxy& p) = default;
+	
 	~Proxy() = default;
 
 	Proxy<ind + 1, T, def, dim> operator[](size_t m) {
@@ -80,30 +80,8 @@ public:
 	void operator=(const Proxy& other) = delete;
 	~Proxy() = default;
 
-	T& operator[](size_t m) const {
-		index temp = _index;
-		temp[dim - 1] = m;
-		if (_matrix_pointer->find(temp) == _matrix_pointer->end()) {
-			temp = def;
-		}
-		else {
-			temp = _matrix_pointer->at(temp);
-		}
-		return temp;
-	}
-
-	operator T& () const {
-		T temp;
-		if (_matrix_pointer->find(_index) == _matrix_pointer->end()) {
-			temp = def;
-		}
-		else {
-			temp = _matrix_pointer->at(_index);
-		}
-		return temp;
-	}
-
 	Proxy& operator[](size_t m) = delete;
+	//T& operator[](size_t m) = delete;
 
 	Proxy& operator=(const T& value) {
 		if (value != def) {
@@ -128,7 +106,6 @@ public:
 		return out;
 	}
 };
-
 
 
 /**
