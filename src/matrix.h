@@ -113,6 +113,9 @@ public:
 		if (value != def) {
 			_matrix_pointer->emplace(_index, value);
 		}
+		else {
+			_matrix_pointer->erase(_index);
+		}
 		return *this;
 	}
 
