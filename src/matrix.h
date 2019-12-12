@@ -13,7 +13,8 @@
 #include <unordered_map>
 #include <array>
 
-
+template <typename T, T def, size_t dim = 2>
+class Matrix;
 
 /**
 * @brief Шаблонный вспомогательный класс, для реализации оператора []
@@ -25,8 +26,8 @@
 //template <typename T, T def, size_t ind>
 template <size_t ind, typename T, T def, size_t dim=2>
 class Proxy {
-	template <typename T, T def, size_t dim=2>
-	friend class Matrix;
+	
+	friend class<T, def, dim> Matrix;
 
 	using index = std::array<size_t, dim>;
 	using matrix = std::map<index, T>;
@@ -138,7 +139,7 @@ public:
  * dim шаблонный параметр размерности матрицы, по умолчанию 2.
  *
  */
-template <typename T, T def, size_t dim = 2>
+template <typename T, T def, size_t dim=2>
 class Matrix {
 	using index = std::array<size_t, dim>;
 	using matrix = std::map<index, T>;
