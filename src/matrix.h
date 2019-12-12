@@ -80,17 +80,8 @@ public:
 	void operator=(const Proxy& other) = delete;
 	~Proxy() = default;
 
-	T& operator[](size_t m) const {
-		index temp = _index;
-		temp[dim - 1] = m;
-		if (_matrix_pointer->find(temp) == _matrix_pointer->end()) {
-			temp = def;
-		}
-		else {
-			temp = _matrix_pointer->at(temp);
-		}
-		return temp;
-	}
+	Proxy& operator[](size_t m) = delete;
+	T& operator[](size_t m) = delete;
 
 	operator T& () const {
 		T temp;
@@ -102,8 +93,6 @@ public:
 		}
 		return temp;
 	}
-
-	Proxy& operator[](size_t m) = delete;
 
 	Proxy& operator=(const T& value) {
 		if (value != def) {
