@@ -139,7 +139,7 @@ public:
  * dim шаблонный параметр размерности матрицы, по умолчанию 2.
  *
  */
-template <typename T, T def, size_t dim=2>
+template <typename T, T def, size_t dim>
 class Matrix {
 	using index = std::array<size_t, dim>;
 	using matrix = std::map<index, T>;
